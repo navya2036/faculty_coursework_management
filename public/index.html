@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Faculty Portal - Login</title>
+	<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Shri Vishnu Engineering College for Women</h1>
+		</header>
+		<main>
+			<div class="card">
+				<h2>Faculty Login</h2>
+				<form id="loginForm">
+					<label for="email">Email</label>
+					
+					<input type="email" id="email" required placeholder="name@svcew.edu" />
+					<br><br>
+					<label for="password">Password (Faculty ID)</label>
+					<input type="password" id="password" required placeholder="FAC1234" />
+					<div class="actions">
+						<button type="submit">Login</button>
+					</div>
+				</form>
+				<p class="muted" id="loginMsg"></p>
+			</div>
+		</main>
+		<footer class="footer">Department of Artificial Intelligence</footer>
+	</div>
+	<script>
+		const form = document.getElementById('loginForm');
+		const msg = document.getElementById('loginMsg');
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			msg.textContent = '';
+			const email = document.getElementById('email').value.trim();
+			const password = document.getElementById('password').value.trim();
+			try {
+				const res = await fetch('/api/login', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					credentials: 'include',
+					body: JSON.stringify({ email, password })
+				});
+				if (!res.ok) throw new Error((await res.json()).error || 'Login failed');
+				window.location.href = '/year';
+			} catch (err) {
+				msg.textContent = err.message;
+			}
+		});
+	</script>
+</body>
+</html>
+
+

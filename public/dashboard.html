@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+				<button type="button" class="header-btn" id="backBtnHead">Back</button>
+				<h1 style="margin:0;">Faculty Portal</h1>
+				<button type="button" class="header-btn" id="logoutBtnHead">Logout</button>
+			</div>
+		</header>
+		<main>
+			<div class="card" style="max-width: 1100px;">
+				<div style="display:flex; justify-content: space-between; align-items:center; gap: 12px;">
+					<div>
+						<h2>My Subjects</h2>
+						<p class="muted" id="who" style="margin-top:4px;"></p>
+					</div>
+					<div class="actions">
+						<button id="addBtn">Add Subject</button>
+					</div>
+				</div>
+				<div id="list" class="subjects"></div>
+			</div>
+		</main>
+	</div>
+
+	<!-- Add/Edit Modal -->
+	<div id="modal" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,0.3);">
+		<div class="card" style="max-width: 720px;">
+			<h3 id="modalTitle">Add Subject</h3>
+			<form id="subjectForm">
+				<div class="row">
+					<div>
+						<label for="yearSem">Year/Semester</label>
+						<select id="yearSem" required>
+							<option value="">Select</option>
+							<option>I-I</option>
+							<option>I-II</option>
+							<option>II-I</option>
+							<option>II-II</option>
+							<option>III-I</option>
+							<option>III-II</option>
+							<option>IV-I</option>
+							<option>IV-II</option>
+						</select>
+					</div>
+					<div>
+						<label for="department">Department</label>
+						<select id="department" required>
+							<option value="">Select</option>
+							<option>CSE</option>
+							<option>AIDS</option>
+							<option>AIML</option>
+							<option>CS</option>
+							<option>IT</option>
+							<option>ECE</option>
+							<option>EEE</option>
+							<option>ME</option>
+							<option>CIVIL</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div>
+						<label for="section">Section</label>
+						<select id="section" required>
+							<option value="">Select</option>
+							<option>A</option>
+							<option>B</option>
+							<option>C</option>
+						</select>
+					</div>
+					<div>
+						<label for="regulation">Regulation</label>
+						<select id="regulation" required>
+							<option value="">Select</option>
+							<option>R-18</option>
+							<option>R20-R</option>
+							<option>R-20</option>
+							<option>R-22</option>
+							<option>R-23</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div>
+						<label for="subjectCode">Subject Code</label>
+						<input id="subjectCode" required placeholder="CS501" />
+					</div>
+					<div>
+						<label for="subjectName">Subject Name</label>
+						<input id="subjectName" required placeholder="Data Structures" />
+					</div>
+				</div>
+				<div class="actions">
+					<button type="submit" id="saveBtn">Save</button>
+					<button type="button" class="secondary" id="cancelBtn">Cancel</button>
+				</div>
+				<input type="hidden" id="editId" />
+			</form>
+		</div>
+	</div>
+
+	<script>
+		const listEl = document.getElementById('list');
+		const who = document.getElementById('who');
+		const modal = document.getElementById('modal');
+		const editId = document.getElementById('editId');
+		const subjectForm = document.getElementById('subjectForm');
+
+		document.getElementById('logoutBtnHead').addEventListener('click', async () => {
+			await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+			window.location.href = '/';
+		});
+		document.getElementById('backBtnHead').addEventListener('click', () => {
+			window.location.href = '/year';
+		});
+		document.getElementById('addBtn').addEventListener('click', () => openModal());
+		document.getElementById('cancelBtn').addEventListener('click', () => closeModal());
+
+		function openModal(subject) {
+			modal.style.display = 'flex';
+			document.getElementById('modalTitle').textContent = subject ? 'Edit Subject' : 'Add Subject';
+			editId.value = subject ? subject.id : '';
+			document.getElementById('yearSem').value = subject?.yearSem || '';
+			document.getElementById('department').value = subject?.department || '';
+			document.getElementById('section').value = subject?.section || '';
+			document.getElementById('regulation').value = subject?.regulation || '';
+			document.getElementById('subjectCode').value = subject?.subjectCode || '';
+			document.getElementById('subjectName').value = subject?.subjectName || '';
+		}
+		function closeModal() { modal.style.display = 'none'; subjectForm.reset(); editId.value = ''; }
+
+		async function load() {
+			const me = await fetch('/api/me', { credentials: 'include' });
+			if (!me.ok) { window.location.href = '/'; return; }
+			const meData = await me.json();
+			if (!meData.academicYear) { window.location.href = '/year'; return; }
+			who.textContent = `${meData.user.name} (${meData.user.facultyId}) • ${meData.user.department} • AY ${meData.academicYear}`;
+			const res = await fetch('/api/subjects', { credentials: 'include' });
+			const data = await res.json();
+			renderList(data.subjects || []);
+		}
+
+		function renderList(subjects) {
+			listEl.innerHTML = '';
+			if (!subjects.length) {
+				listEl.innerHTML = '<p class="muted">No subjects yet. Click "Add Subject" to begin.</p>';
+				return;
+			}
+			subjects.forEach((s) => {
+				const el = document.createElement('div');
+				el.className = 'subject-card';
+				el.innerHTML = `
+					<div class="subject-title">${s.subjectCode} — ${s.subjectName}</div>
+					<div class="subject-meta">${s.department} • Section ${s.section} • ${s.yearSem} • ${s.regulation}</div>
+					<div class="actions" style="justify-content:flex-start;">
+						<button data-action="coursework">Coursework</button>
+						<button class="secondary" data-action="edit">Edit</button>
+						<button class="ghost" data-action="delete">Delete</button>
+					</div>
+				`;
+				el.querySelector('[data-action="coursework"]').addEventListener('click', () => {
+					localStorage.setItem('subject', JSON.stringify(s));
+					window.location.href = '/coursework';
+				});
+				el.querySelector('[data-action="edit"]').addEventListener('click', () => openModal(s));
+				el.querySelector('[data-action="delete"]').addEventListener('click', async () => {
+					if (!confirm('Delete this subject?')) return;
+					await fetch(`/api/subjects/${s.id}`, { method: 'DELETE', credentials: 'include' });
+					load();
+				});
+				listEl.appendChild(el);
+			});
+		}
+
+		subjectForm.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const subject = {
+				yearSem: document.getElementById('yearSem').value,
+				department: document.getElementById('department').value,
+				section: document.getElementById('section').value,
+				regulation: document.getElementById('regulation').value,
+				subjectCode: document.getElementById('subjectCode').value.trim(),
+				subjectName: document.getElementById('subjectName').value.trim(),
+			};
+			const id = editId.value;
+			const method = id ? 'PUT' : 'POST';
+			const url = id ? `/api/subjects/${id}` : '/api/subjects';
+			await fetch(url, {
+				method,
+				headers: { 'Content-Type': 'application/json' },
+				credentials: 'include',
+				body: JSON.stringify(subject)
+			});
+			closeModal();
+			load();
+		});
+
+		load();
+	</script>
+</body>
+</html>
+
+

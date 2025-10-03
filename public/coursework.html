@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Coursework Uploads</title>
+	<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+				<button type="button" class="header-btn" id="backBtnHead">Back</button>
+				<h1 style="margin:0;">Coursework</h1>
+				<button type="button" class="header-btn" id="logoutBtnHead">Logout</button>
+			</div>
+		</header>
+		<main>
+			<div class="card" style="max-width: 1100px;">
+				<div style="display:flex; align-items:center; justify-content: space-between; gap:12px;">
+					<div>
+						<h2 id="title">Subject</h2>
+						<p class="muted" id="meta"></p>
+					</div>
+					<div class="actions">
+						<button id="mergeTop">Download merged</button>
+					</div>
+				</div>
+				<div class="grid-22" id="grid" style="grid-template-columns: 1fr;"></div>
+			</div>
+		</main>
+	</div>
+	<script>
+		const grid = document.getElementById('grid');
+		const subject = JSON.parse(localStorage.getItem('subject') || '{}');
+		if (!subject.id) { window.location.href = '/dashboard'; }
+		document.getElementById('logoutBtnHead').addEventListener('click', async () => {
+			await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+			window.location.href = '/';
+		});
+		document.getElementById('backBtnHead').addEventListener('click', () => {
+			window.location.href = '/dashboard';
+		});
+
+		document.getElementById('title').textContent = `${subject.subjectCode} — ${subject.subjectName}`;
+		document.getElementById('meta').textContent = `${subject.department} • Section ${subject.section} • ${subject.yearSem} • ${subject.regulation}`;
+
+		const sections = [
+			'Academic Calendar',
+			'Test Schedules',
+			'List of Holidays',
+			'Subject Allocation',
+			'IndividualClass Time Table',
+			'List of Registered Students',
+			'Course Syllabus along with Text Books and References',
+			'Micro-Level Lesson Plan including Topics Planned Beyond Syllabus and Tutorials',
+			'Unit-Wise Handouts',
+			'Unit-Wise Lecture notes',
+			'Content of Topics Beyond the Syllabus',
+			'Tutorial Scripts',
+			'Question Bank',
+			'Previous Question papers of Sem End Examination',
+			'Internal Evaluation 1',
+			'Internal Evaluation 2',
+			'Overall Internal Evaluation Marks',
+			'Semester End Examination Question Paper',
+			'Result Analysis',
+			'Innovative Methods Employed in Teaching learning Process',
+			'Record of Attendance and Assessment',
+			'Student Feedback Report',
+			'Record of Attainment of Course Outcomes'
+		];
+
+		const defaultDescriptions = sections.map((s, i) => `Upload PDF for ${s}.`);
+		function createUploader(n) {
+			const el = document.createElement('div');
+			el.className = 'uploader';
+			const title = sections[n-1] || `Section ${n}`;
+			el.innerHTML = `
+				<div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+					<h4 class="clamp-2" style="margin:0;">${n}. ${title}</h4>
+					<button class="status-btn" data-role="statusBtn">Pending</button>
+				</div>
+				<div style="position: relative;">
+					<input type="file" accept="application/pdf" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;" />
+					<div class="file-display" data-role="fileDisplay" style="border: 2px dashed #ccc; padding: 12px; border-radius: 8px; text-align: center; background: #f9f9f9; cursor: pointer;">
+						<span data-role="fileText">Choose File</span>
+						<span data-role="fileName" style="display: none; color: #333; font-weight: 500;"></span>
+					</div>
+				</div>
+				<p class="muted" data-role="hint" style="display:none; margin: 8px 0 0; color:#b45309;">File selected — click “Upload PDF” to save.</p>
+				<div class="actions" style="justify-content:space-between;">
+					<div style="display:flex; gap:10px;">
+						<button class="secondary" data-action="edit">Edit</button>
+						<button class="ghost" data-action="delete">Delete</button>
+					</div>
+					<div style="display:flex; gap:10px;">
+						<button data-action="upload">Upload PDF</button>
+						<a class="ghost" target="_blank" data-action="view" style="text-decoration:none; padding: 10px 16px; border-radius: 8px; border:1px solid var(--muted);">View</a>
+					</div>
+				</div>
+				<p class="muted" data-role="desc"></p>
+			`;
+			const input = el.querySelector('input');
+			const statusBtn = el.querySelector('[data-role="statusBtn"]');
+			const fileDisplay = el.querySelector('[data-role="fileDisplay"]');
+			const fileText = el.querySelector('[data-role="fileText"]');
+			const fileName = el.querySelector('[data-role="fileName"]');
+			const hint = el.querySelector('[data-role="hint"]');
+			el.querySelector('[data-role="desc"]').textContent = defaultDescriptions[n-1] || '';
+			const view = el.querySelector('[data-action="view"]');
+			const uploadBtn = el.querySelector('[data-action="upload"]');
+			const editBtn = el.querySelector('[data-action="edit"]');
+			const deleteBtn = el.querySelector('[data-action="delete"]');
+			
+			// Add event listener for file selection
+			input.addEventListener('change', () => {
+				if (input.files[0]) {
+					fileText.style.display = 'none';
+					fileName.textContent = input.files[0].name;
+					fileName.style.display = 'inline';
+					fileDisplay.classList.remove('uploaded');
+					fileDisplay.classList.add('selected');
+					statusBtn.classList.remove('done');
+					statusBtn.classList.add('selected');
+					statusBtn.textContent = 'Selected';
+					uploadBtn.classList.add('upload-attn');
+					hint.style.display = 'block';
+				} else {
+					fileText.style.display = 'inline';
+					fileName.style.display = 'none';
+					fileDisplay.classList.remove('selected', 'uploaded');
+					statusBtn.classList.remove('selected', 'done');
+					statusBtn.textContent = 'Pending';
+					uploadBtn.classList.remove('upload-attn');
+					hint.style.display = 'none';
+				}
+			});
+
+			// Edit: re-open file picker to change selection
+			editBtn.addEventListener('click', () => {
+				input.click();
+			});
+
+			// Delete: remove uploaded file for this section
+			deleteBtn.addEventListener('click', async () => {
+				if (!confirm('Delete the uploaded PDF for this section?')) return;
+				const res = await fetch(`/api/upload?subjectCode=${encodeURIComponent(subject.subjectCode)}&section=${n}`, { method: 'DELETE', credentials: 'include' });
+				if (res.ok) {
+					// Reset UI to pending state
+					statusBtn.classList.remove('done', 'selected');
+					statusBtn.textContent = 'Pending';
+					fileText.style.display = 'inline';
+					fileName.style.display = 'none';
+					fileDisplay.classList.remove('selected', 'uploaded');
+					uploadBtn.classList.remove('upload-attn');
+					hint.style.display = 'none';
+					// Clear view link
+					view.textContent = 'No file';
+					view.removeAttribute('href');
+				} else {
+					alert('Delete failed');
+				}
+			});
+			el.querySelector('[data-action="upload"]').addEventListener('click', async () => {
+				if (!input.files[0]) { statusBtn.textContent = 'Choose file'; return; }
+				const form = new FormData();
+				form.append('file', input.files[0]);
+				const res = await fetch(`/api/upload?subjectCode=${encodeURIComponent(subject.subjectCode)}&section=${n}`, {
+					method: 'POST',
+					credentials: 'include',
+					body: form
+				});
+				if (res.ok) { 
+					statusBtn.classList.remove('selected');
+					statusBtn.classList.add('done'); 
+					statusBtn.textContent = 'Uploaded'; 
+					fileText.style.display = 'none';
+					fileName.textContent = input.files[0].name;
+					fileName.style.display = 'inline';
+					fileDisplay.classList.remove('selected');
+					fileDisplay.classList.add('uploaded');
+					uploadBtn.classList.remove('upload-attn');
+					hint.style.display = 'none';
+					loadExisting(); 
+				} else { 
+					statusBtn.textContent = 'Upload failed'; 
+				}
+			});
+			el.dataset.section = String(n);
+			el.querySelector('[data-action="view"]').addEventListener('click', (e) => {
+				e.preventDefault();
+				const href = el.querySelector('[data-action="view"]').getAttribute('href');
+				if (href) window.open(href, '_blank');
+			});
+			return el;
+		}
+
+		function renderGrid() {
+			grid.innerHTML = '';
+			Array.from({ length: 23 }, (_, i) => i + 1).forEach((n) => grid.appendChild(createUploader(n)));
+		}
+
+		async function loadExisting() {
+			const res = await fetch(`/api/uploads?subjectCode=${encodeURIComponent(subject.subjectCode)}`, { credentials: 'include' });
+			if (!res.ok) return;
+			const data = await res.json();
+			const files = data.files || [];
+			for (const el of grid.children) {
+				const n = el.dataset.section;
+				const name = `section-${n}.pdf`;
+				const file = files.find(f => f.name === name);
+				const a = el.querySelector('[data-action="view"]');
+				const statusBtn = el.querySelector('[data-role="statusBtn"]');
+				const fileDisplay = el.querySelector('[data-role="fileDisplay"]');
+				const fileText = el.querySelector('[data-role="fileText"]');
+				const fileName = el.querySelector('[data-role="fileName"]');
+				const hint = el.querySelector('[data-role="hint"]');
+				const uploadBtn = el.querySelector('[data-action="upload"]');
+				if (file) {
+					a.textContent = 'View uploaded';
+					a.href = file.url;
+					statusBtn.classList.remove('selected');
+					statusBtn.classList.add('done');
+					statusBtn.textContent = 'Uploaded';
+					fileText.style.display = 'none';
+					fileName.textContent = file.name;
+					fileName.style.display = 'inline';
+					fileDisplay.classList.remove('selected');
+					fileDisplay.classList.add('uploaded');
+					uploadBtn.classList.remove('upload-attn');
+					hint.style.display = 'none';
+				} else {
+					a.textContent = 'No file';
+					a.removeAttribute('href');
+					statusBtn.classList.remove('done', 'selected');
+					statusBtn.textContent = 'Pending';
+					fileText.style.display = 'inline';
+					fileName.style.display = 'none';
+					fileDisplay.classList.remove('selected', 'uploaded');
+					uploadBtn.classList.remove('upload-attn');
+					hint.style.display = 'none';
+				}
+			}
+		}
+
+		document.getElementById('mergeTop').addEventListener('click', async () => {
+			const res = await fetch(`/api/merge?subjectCode=${encodeURIComponent(subject.subjectCode)}&subjectName=${encodeURIComponent(subject.subjectName)}`, { credentials: 'include' });
+			if (!res.ok) { alert('Merge failed'); return; }
+			const blob = await res.blob();
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = `${subject.subjectCode}-merged.pdf`;
+			a.click();
+			URL.revokeObjectURL(url);
+		});
+
+		renderGrid();
+		loadExisting();
+	</script>
+</body>
+</html>
+
+

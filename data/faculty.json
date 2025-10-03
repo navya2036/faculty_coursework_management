@@ -1,0 +1,18 @@
+{
+  "faculty": [
+    {
+      "facultyId": "FAC1001",
+      "name": "Dr. Anitha Rao",
+      "email": "anitha.rao@svcew.edu",
+      "department": "CSE"
+    },
+    {
+      "facultyId": "FAC2002",
+      "name": "Prof. Suma Devi",
+      "email": "suma.devi@svcew.edu",
+      "department": "AIDS"
+    }
+  ]
+}
+
+

@@ -1,0 +1,16 @@
+{
+  "byFacultyId": {
+    "FAC1001": [
+      {
+        "id": "44d1c826-707b-4611-8ebe-61cadccb8eb8",
+        "yearSem": "III-I",
+        "department": "CSE",
+        "section": "B",
+        "subjectCode": "UG201",
+        "subjectName": "Computer Networks",
+        "regulation": "R-23",
+        "createdAt": 1758170163828
+      }
+    ]
+  }
+}

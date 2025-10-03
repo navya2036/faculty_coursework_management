@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Select Academic Year</title>
+	<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Shri Vishnu Engineering College for Women</h1>
+		</header>
+		<main>
+			<div class="card">
+				<h2>Academic Year</h2>
+				<form id="yearForm">
+					<label for="year">Enter academic year (e.g., 2023-24)</label>
+					<input type="text" id="year" required placeholder="2025-26" pattern="\d{4}-\d{2}" />
+					<div class="actions">
+						<button type="submit">Continue</button>
+						<button class="ghost" id="logoutBtn" type="button">Logout</button>
+					</div>
+				</form>
+				<p class="muted" id="yearMsg"></p>
+			</div>
+		</main>
+		<footer class="footer">Department of Artificial Intelligence</footer>
+	</div>
+	<script>
+		async function ensureAuth() {
+			const res = await fetch('/api/me', { credentials: 'include' });
+			if (!res.ok) { window.location.href = '/'; return; }
+			const data = await res.json();
+			if (data.academicYear) {
+				document.getElementById('year').value = data.academicYear;
+			}
+		}
+		ensureAuth();
+
+		document.getElementById('logoutBtn').addEventListener('click', async () => {
+			await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+			window.location.href = '/';
+		});
+
+		document.getElementById('yearForm').addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const msg = document.getElementById('yearMsg');
+			msg.textContent = '';
+			const year = document.getElementById('year').value.trim();
+			try {
+				const res = await fetch('/api/year', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					credentials: 'include',
+					body: JSON.stringify({ year })
+				});
+				if (!res.ok) throw new Error((await res.json()).error || 'Failed');
+				window.location.href = '/dashboard';
+			} catch (err) {
+				msg.textContent = err.message;
+			}
+		});
+	</script>
+</body>
+</html>
+
+
