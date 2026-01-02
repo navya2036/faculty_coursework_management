@@ -116,11 +116,11 @@
 		const subjectForm = document.getElementById('subjectForm');
 
 		document.getElementById('logoutBtnHead').addEventListener('click', async () => {
-			await fetch('/api/logout', { method: 'POST', credentials: 'include' });
-			window.location.href = '/';
+			await fetch('/coursefile/api/logout', { method: 'POST', credentials: 'include' });
+			window.location.href = '/coursefile';
 		});
 		document.getElementById('backBtnHead').addEventListener('click', () => {
-			window.location.href = '/year';
+			window.location.href = '/coursefile/year';
 		});
 		document.getElementById('addBtn').addEventListener('click', () => openModal());
 		document.getElementById('cancelBtn').addEventListener('click', () => closeModal());
@@ -139,12 +139,12 @@
 		function closeModal() { modal.style.display = 'none'; subjectForm.reset(); editId.value = ''; }
 
 		async function load() {
-			const me = await fetch('/api/me', { credentials: 'include' });
-			if (!me.ok) { window.location.href = '/'; return; }
+			const me = await fetch('/coursefile/api/me', { credentials: 'include' });
+			if (!me.ok) { window.location.href = '/coursefile'; return; }
 			const meData = await me.json();
-			if (!meData.academicYear) { window.location.href = '/year'; return; }
+			if (!meData.academicYear) { window.location.href = '/coursefile/year'; return; }
 			who.textContent = `${meData.user.name} (${meData.user.facultyId}) • ${meData.user.department} • AY ${meData.academicYear}`;
-			const res = await fetch('/api/subjects', { credentials: 'include' });
+			const res = await fetch('/coursefile/api/subjects', { credentials: 'include' });
 			const data = await res.json();
 			renderList(data.subjects || []);
 		}
@@ -169,12 +169,12 @@
 				`;
 				el.querySelector('[data-action="coursework"]').addEventListener('click', () => {
 					localStorage.setItem('subject', JSON.stringify(s));
-					window.location.href = '/coursework';
+					window.location.href = '/coursefile/coursework';
 				});
 				el.querySelector('[data-action="edit"]').addEventListener('click', () => openModal(s));
 				el.querySelector('[data-action="delete"]').addEventListener('click', async () => {
 					if (!confirm('Delete this subject?')) return;
-					await fetch(`/api/subjects/${s.id}`, { method: 'DELETE', credentials: 'include' });
+					await fetch(`/coursefile/api/subjects/${s.id}`, { method: 'DELETE', credentials: 'include' });
 					load();
 				});
 				listEl.appendChild(el);
@@ -193,7 +193,7 @@
 			};
 			const id = editId.value;
 			const method = id ? 'PUT' : 'POST';
-			const url = id ? `/api/subjects/${id}` : '/api/subjects';
+			const url = id ? `/coursefile/api/subjects/${id}` : '/coursefile/api/subjects';
 			await fetch(url, {
 				method,
 				headers: { 'Content-Type': 'application/json' },

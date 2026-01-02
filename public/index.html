@@ -39,14 +39,14 @@
 			const email = document.getElementById('email').value.trim();
 			const password = document.getElementById('password').value.trim();
 			try {
-				const res = await fetch('/api/login', {
+				const res = await fetch('/coursefile/api/login', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					credentials: 'include',
 					body: JSON.stringify({ email, password })
 				});
 				if (!res.ok) throw new Error((await res.json()).error || 'Login failed');
-				window.location.href = '/year';
+				window.location.href = '/coursefile/year';
 			} catch (err) {
 				msg.textContent = err.message;
 			}

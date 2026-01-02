@@ -33,13 +33,13 @@
 	<script>
 		const grid = document.getElementById('grid');
 		const subject = JSON.parse(localStorage.getItem('subject') || '{}');
-		if (!subject.id) { window.location.href = '/dashboard'; }
+		if (!subject.id) { window.location.href = '/coursefile/dashboard'; }
 		document.getElementById('logoutBtnHead').addEventListener('click', async () => {
-			await fetch('/api/logout', { method: 'POST', credentials: 'include' });
-			window.location.href = '/';
+			await fetch('/coursefile/api/logout', { method: 'POST', credentials: 'include' });
+			window.location.href = '/coursefile';
 		});
 		document.getElementById('backBtnHead').addEventListener('click', () => {
-			window.location.href = '/dashboard';
+			window.location.href = '/coursefile/dashboard';
 		});
 
 		document.getElementById('title').textContent = `${subject.subjectCode} — ${subject.subjectName}`;
@@ -145,7 +145,7 @@
 			// Delete: remove uploaded file for this section
 			deleteBtn.addEventListener('click', async () => {
 				if (!confirm('Delete the uploaded PDF for this section?')) return;
-				const res = await fetch(`/api/upload?subjectCode=${encodeURIComponent(subject.subjectCode)}&section=${n}`, { method: 'DELETE', credentials: 'include' });
+				const res = await fetch(`/coursefile/api/upload?subjectCode=${encodeURIComponent(subject.subjectCode)}&section=${n}`, { method: 'DELETE', credentials: 'include' });
 				if (res.ok) {
 					// Reset UI to pending state
 					statusBtn.classList.remove('done', 'selected');
@@ -166,7 +166,7 @@
 				if (!input.files[0]) { statusBtn.textContent = 'Choose file'; return; }
 				const form = new FormData();
 				form.append('file', input.files[0]);
-				const res = await fetch(`/api/upload?subjectCode=${encodeURIComponent(subject.subjectCode)}&section=${n}`, {
+				const res = await fetch(`/coursefile/api/upload?subjectCode=${encodeURIComponent(subject.subjectCode)}&section=${n}`, {
 					method: 'POST',
 					credentials: 'include',
 					body: form
@@ -202,7 +202,7 @@
 		}
 
 		async function loadExisting() {
-			const res = await fetch(`/api/uploads?subjectCode=${encodeURIComponent(subject.subjectCode)}`, { credentials: 'include' });
+			const res = await fetch(`/coursefile/api/uploads?subjectCode=${encodeURIComponent(subject.subjectCode)}`, { credentials: 'include' });
 			if (!res.ok) return;
 			const data = await res.json();
 			const files = data.files || [];
@@ -245,7 +245,7 @@
 		}
 
 		document.getElementById('mergeTop').addEventListener('click', async () => {
-			const res = await fetch(`/api/merge?subjectCode=${encodeURIComponent(subject.subjectCode)}&subjectName=${encodeURIComponent(subject.subjectName)}`, { credentials: 'include' });
+			const res = await fetch(`/coursefile/api/merge?subjectCode=${encodeURIComponent(subject.subjectCode)}&subjectName=${encodeURIComponent(subject.subjectName)}`, { credentials: 'include' });
 			if (!res.ok) { alert('Merge failed'); return; }
 			const blob = await res.blob();
 			const url = URL.createObjectURL(blob);

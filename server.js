@@ -17,13 +17,13 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Simple in-memory session store
 const sessionTokenToSession = new Map();
 
 // Data file paths
-const dataDir = path.join(__dirname, '..', 'data');
+const dataDir = path.join(__dirname, 'data');
 const facultyDataPath = path.join(dataDir, 'faculty.json');
 const subjectsDataPath = path.join(dataDir, 'subjects.json');
 
@@ -56,7 +56,7 @@ function requireAuth(req, res, next) {
 }
 
 // Auth routes
-app.post('/api/login', (req, res) => {
+app.post('/coursefile/api/login', (req, res) => {
   const { email, password } = req.body || {};
   if (!email || !password) {
     return res.status(400).json({ error: 'Email and password are required' });
@@ -89,14 +89,14 @@ app.post('/api/login', (req, res) => {
   return res.json({ ok: true, user: { name: session.name, facultyId: session.facultyId, department: session.department } });
 });
 
-app.post('/api/logout', requireAuth, (req, res) => {
+app.post('/coursefile/api/logout', requireAuth, (req, res) => {
   const token = req.cookies.session;
   sessionTokenToSession.delete(token);
   res.clearCookie('session');
   res.json({ ok: true });
 });
 
-app.post('/api/year', requireAuth, (req, res) => {
+app.post('/coursefile/api/year', requireAuth, (req, res) => {
   const { year } = req.body || {};
   // Expect format YYYY-YY e.g., 2023-24
   const regex = /^\d{4}-\d{2}$/;
@@ -107,19 +107,19 @@ app.post('/api/year', requireAuth, (req, res) => {
   return res.json({ ok: true, year });
 });
 
-app.get('/api/me', requireAuth, (req, res) => {
+app.get('/coursefile/api/me', requireAuth, (req, res) => {
   const { name, facultyId, email, department, academicYear } = req.session;
   res.json({ user: { name, facultyId, email, department }, academicYear: academicYear || null });
 });
 
 // Subjects CRUD
-app.get('/api/subjects', requireAuth, (req, res) => {
+app.get('/coursefile/api/subjects', requireAuth, (req, res) => {
   const data = readJson(subjectsDataPath);
   const list = data.byFacultyId[req.session.facultyId] || [];
   res.json({ subjects: list });
 });
 
-app.post('/api/subjects', requireAuth, (req, res) => {
+app.post('/coursefile/api/subjects', requireAuth, (req, res) => {
   const { yearSem, department, section, subjectCode, subjectName, regulation } = req.body || {};
   if (!yearSem || !department || !section || !subjectCode || !subjectName || !regulation) {
     return res.status(400).json({ error: 'All fields are required' });
@@ -143,7 +143,7 @@ app.post('/api/subjects', requireAuth, (req, res) => {
   res.status(201).json({ subject });
 });
 
-app.put('/api/subjects/:id', requireAuth, (req, res) => {
+app.put('/coursefile/api/subjects/:id', requireAuth, (req, res) => {
   const { id } = req.params;
   const { yearSem, department, section, subjectCode, subjectName, regulation } = req.body || {};
   const data = readJson(subjectsDataPath);
@@ -166,7 +166,7 @@ app.put('/api/subjects/:id', requireAuth, (req, res) => {
   res.json({ subject: updated });
 });
 
-app.delete('/api/subjects/:id', requireAuth, (req, res) => {
+app.delete('/coursefile/api/subjects/:id', requireAuth, (req, res) => {
   const { id } = req.params;
   const data = readJson(subjectsDataPath);
   const list = data.byFacultyId[req.session.facultyId] || [];
@@ -183,7 +183,7 @@ app.delete('/api/subjects/:id', requireAuth, (req, res) => {
     const dept = req.session.department;
     const facultyId = req.session.facultyId;
     if (year && dept && facultyId && removed && removed.subjectCode) {
-      const dir = path.join(__dirname, '..', 'uploads', year, dept, facultyId, removed.subjectCode);
+      const dir = path.join(__dirname, 'uploads', year, dept, facultyId, removed.subjectCode);
       if (fs.existsSync(dir)) {
         fs.rmSync(dir, { recursive: true, force: true });
       }
@@ -236,7 +236,7 @@ const upload = multer({
       const year = req.session.academicYear;
       const dept = req.session.department;
       const facultyId = req.session.facultyId;
-      const baseDir = path.join(__dirname, '..', 'uploads', year, dept, facultyId, subjectCode);
+      const baseDir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
       fs.mkdirSync(baseDir, { recursive: true });
       cb(null, baseDir);
     },
@@ -314,14 +314,14 @@ async function addCoverAndSave(tempFilePath, finalFilePath, title) {
 }
 
 // Upload single pdf for a given section
-app.post('/api/upload', requireAuth, upload.single('file'), async (req, res) => {
+app.post('/coursefile/api/upload', requireAuth, upload.single('file'), async (req, res) => {
   try {
     const { subjectCode, section } = req.query;
     if (!subjectCode || !section) return res.status(400).json({ error: 'subjectCode and section are required' });
     const year = req.session.academicYear;
     const dept = req.session.department;
     const facultyId = req.session.facultyId;
-    const dir = path.join(__dirname, '..', 'uploads', year, dept, facultyId, subjectCode);
+    const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
     const finalName = `section-${section}.pdf`;
     const tmpPath = path.join(dir, req.file.filename);
     const finalPath = path.join(dir, finalName);
@@ -336,14 +336,14 @@ app.post('/api/upload', requireAuth, upload.single('file'), async (req, res) => 
 });
 
 // Delete uploaded pdf for a given section
-app.delete('/api/upload', requireAuth, async (req, res) => {
+app.delete('/coursefile/api/upload', requireAuth, async (req, res) => {
   try {
     const { subjectCode, section } = req.query;
     if (!subjectCode || !section) return res.status(400).json({ error: 'subjectCode and section are required' });
     const year = req.session.academicYear;
     const dept = req.session.department;
     const facultyId = req.session.facultyId;
-    const dir = path.join(__dirname, '..', 'uploads', year, dept, facultyId, subjectCode);
+    const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
     const filePath = path.join(dir, `section-${section}.pdf`);
     if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'File not found' });
     fs.unlinkSync(filePath);
@@ -354,30 +354,30 @@ app.delete('/api/upload', requireAuth, async (req, res) => {
 });
 
 // List uploaded files for a subject
-app.get('/api/uploads', requireAuth, (req, res) => {
+app.get('/coursefile/api/uploads', requireAuth, (req, res) => {
   const { subjectCode } = req.query;
   if (!subjectCode) return res.status(400).json({ error: 'subjectCode is required' });
   if (!req.session.academicYear) return res.status(400).json({ error: 'Academic year not set' });
   const year = req.session.academicYear;
   const dept = req.session.department;
   const facultyId = req.session.facultyId;
-  const dir = path.join(__dirname, '..', 'uploads', year, dept, facultyId, subjectCode);
+  const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
   if (!fs.existsSync(dir)) return res.json({ files: [] });
   const files = fs
     .readdirSync(dir)
     .filter((f) => f.toLowerCase().endsWith('.pdf'))
     .map((name) => ({
       name,
-      url: `/uploads/${encodeURIComponent(year)}/${encodeURIComponent(dept)}/${encodeURIComponent(facultyId)}/${encodeURIComponent(subjectCode)}/${encodeURIComponent(name)}`
+      url: `/coursefile/uploads/${encodeURIComponent(year)}/${encodeURIComponent(dept)}/${encodeURIComponent(facultyId)}/${encodeURIComponent(subjectCode)}/${encodeURIComponent(name)}`
     }));
   res.json({ files });
 });
 
 // Expose uploads for viewing (read-only)
-app.use('/uploads', (req, res, next) => {
+app.use('/coursefile/uploads', (req, res, next) => {
   // Prevent path traversal; serve only within uploads dir
   const requested = path.normalize(req.path).replace(/^\/+/, '');
-  const base = path.join(__dirname, '..', 'uploads');
+  const base = path.join(__dirname, 'uploads');
   const full = path.join(base, requested);
   if (!full.startsWith(base)) return res.status(400).end();
   if (!fs.existsSync(full)) return res.status(404).end();
@@ -404,14 +404,14 @@ async function addCoverPageTo(outPdf, text) {
 }
 
 // Merge all available section PDFs into one file with a title page
-app.get('/api/merge', requireAuth, async (req, res) => {
+app.get('/coursefile/api/merge', requireAuth, async (req, res) => {
   try {
     const { subjectCode, subjectName } = req.query;
     if (!subjectCode || !subjectName) return res.status(400).json({ error: 'subjectCode and subjectName are required' });
     const year = req.session.academicYear;
     const dept = req.session.department;
     const facultyId = req.session.facultyId;
-    const dir = path.join(__dirname, '..', 'uploads', year, dept, facultyId, subjectCode);
+    const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
     const out = await PDFDocument.create();
@@ -440,18 +440,23 @@ app.get('/api/merge', requireAuth, async (req, res) => {
   }
 });
 
-// Fallback to serve SPA-like navigation between static pages
+// Redirect root to coursefile
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  res.redirect('/coursefile');
 });
-app.get('/year', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'year.html'));
+
+// Fallback to serve SPA-like navigation between static pages
+app.get('/coursefile', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-app.get('/dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'dashboard.html'));
+app.get('/coursefile/year', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'year.html'));
 });
-app.get('/coursework', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'coursework.html'));
+app.get('/coursefile/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
+app.get('/coursefile/coursework', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'coursework.html'));
 });
 
 app.listen(PORT, () => {

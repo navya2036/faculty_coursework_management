@@ -29,8 +29,8 @@
 	</div>
 	<script>
 		async function ensureAuth() {
-			const res = await fetch('/api/me', { credentials: 'include' });
-			if (!res.ok) { window.location.href = '/'; return; }
+			const res = await fetch('/coursefile/api/me', { credentials: 'include' });
+			if (!res.ok) { window.location.href = '/coursefile'; return; }
 			const data = await res.json();
 			if (data.academicYear) {
 				document.getElementById('year').value = data.academicYear;
@@ -39,8 +39,8 @@
 		ensureAuth();
 
 		document.getElementById('logoutBtn').addEventListener('click', async () => {
-			await fetch('/api/logout', { method: 'POST', credentials: 'include' });
-			window.location.href = '/';
+			await fetch('/coursefile/api/logout', { method: 'POST', credentials: 'include' });
+			window.location.href = '/coursefile';
 		});
 
 		document.getElementById('yearForm').addEventListener('submit', async (e) => {
@@ -49,14 +49,14 @@
 			msg.textContent = '';
 			const year = document.getElementById('year').value.trim();
 			try {
-				const res = await fetch('/api/year', {
+				const res = await fetch('/coursefile/api/year', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					credentials: 'include',
 					body: JSON.stringify({ year })
 				});
 				if (!res.ok) throw new Error((await res.json()).error || 'Failed');
-				window.location.href = '/dashboard';
+				window.location.href = '/coursefile/dashboard';
 			} catch (err) {
 				msg.textContent = err.message;
 			}
