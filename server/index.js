@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require('uuid');
 const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3030;
 
 // Middlewares
 app.use(cors({ origin: true, credentials: true }));

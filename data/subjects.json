@@ -2,14 +2,14 @@
   "byFacultyId": {
     "FAC1001": [
       {
-        "id": "44d1c826-707b-4611-8ebe-61cadccb8eb8",
-        "yearSem": "III-I",
-        "department": "CSE",
-        "section": "B",
-        "subjectCode": "UG201",
-        "subjectName": "Computer Networks",
+        "id": "466de504-fce6-461c-854e-1fc384074dfc",
+        "yearSem": "III-II",
+        "department": "AIDS",
+        "section": "A",
+        "subjectCode": "UG101",
+        "subjectName": "os",
         "regulation": "R-23",
-        "createdAt": 1758170163828
+        "createdAt": 1767332972371
       }
     ]
   }
