@@ -7,6 +7,9 @@ node_modules/
 # Uploads directory (user files)
 uploads/
 
+# Data files (contains sensitive faculty information)
+data/
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -54,25 +54,56 @@ faculty/
    npm install
    ```
 
-3. Start the server:
+3. Create the `data` folder and add your faculty data:
+
+   ```bash
+   mkdir data
+   ```
+
+   Create `data/faculty.json` with your faculty information:
+
+   ```json
+   {
+     "faculty": [
+       {
+         "facultyid": "5438",
+         "name": "Dr. Sample Faculty",
+         "email": "sample@svecw.edu.in",
+         "department": "AI"
+       }
+     ]
+   }
+   ```
+
+   Create `data/subjects.json` (initially empty):
+
+   ```json
+   {
+     "byFacultyId": {}
+   }
+   ```
+
+   **Note**: The `data` folder is excluded from git to protect sensitive faculty information. You must create it locally.
+
+4. Start the server:
 
    ```bash
    npm start
    ```
 
-4. Open your browser and navigate to:
+5. Open your browser and navigate to:
    ```
    http://localhost:3000
    ```
 
 ## Login Credentials
 
-Use the following credentials to login:
+Login credentials are based on your `data/faculty.json` file:
 
-| Faculty Name    | Email                | Password (Faculty ID) | Department |
-| --------------- | -------------------- | --------------------- | ---------- |
-| Dr. Anitha Rao  | anitha.rao@svcew.edu | FAC1001               | CSE        |
-| Prof. Suma Devi | suma.devi@svcew.edu  | FAC2002               | AIDS       |
+- **Email**: The email address from your faculty record
+- **Password**: Your faculty ID (e.g., `5438`)
+
+Example: If your faculty record has `"facultyid": "5438"` and `"email": "sample@svecw.edu.in"`, use these to login.
 
 ## Coursework Sections
 

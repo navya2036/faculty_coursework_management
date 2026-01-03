@@ -1,18 +1,1780 @@
 {
   "faculty": [
     {
-      "facultyId": "FAC1001",
-      "name": "Dr. Anitha Rao",
-      "email": "anitha.rao@svcew.edu",
+      "facultyid": "5438",
+      "name": "M.H.R Nalini",
+      "email": "mhrnaliniai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "1271",
+      "name": "Manthena Mounica Devi",
+      "email": "mmounicait@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "4004",
+      "name": "Narasimha Rao Peyyala",
+      "email": "narasimharaopeyyala@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "4002",
+      "name": "Subrahmanyam Poolla",
+      "email": "subrahmanyam@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "5435",
+      "name": "Soma Raju kalidindi",
+      "email": "ksrajuai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "99",
+      "name": "jpradeep ai",
+      "email": "jpradeepai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "12019",
+      "name": "Lavanya K",
+      "email": "klavanyaai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5436",
+      "name": "harsha t",
+      "email": "tharshaai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5434",
+      "name": "Davency Priyanka Rapaka",
+      "email": "rdpriyankaai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5433",
+      "name": "S L N V S SINDHUJA GORTY",
+      "email": "gsindhujaai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "500016",
+      "name": "Brahma Ramesh K N V P S",
+      "email": "knvpsbrameshcse@svecw.edu.in",
       "department": "CSE"
     },
     {
-      "facultyId": "FAC2002",
-      "name": "Prof. Suma Devi",
-      "email": "suma.devi@svcew.edu",
-      "department": "AIDS"
+      "facultyid": "500013",
+      "name": "Uma Maheswar Rao S",
+      "email": "drsumraocse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "500018",
+      "name": "Satyanarayana Murthy B",
+      "email": "drbsnmurthycse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "500017",
+      "name": "Sri Rama Chandra P",
+      "email": "drpsrcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "500022",
+      "name": "Dr. Ashok Koujalagi",
+      "email": "drkashokcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "148",
+      "name": "N A G K MANIKANTA",
+      "email": "knagkmanikantace@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "453",
+      "name": "Swathi K",
+      "email": "kswathiece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "499",
+      "name": "Vaisalini B.",
+      "email": "bvaisaliniece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "159",
+      "name": "Dr Anand balasubramanian",
+      "email": "dranandce@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "1270IT",
+      "name": "Ram Kumar",
+      "email": "kramkumarit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1269",
+      "name": "Badugu Vimala Victoria",
+      "email": "bvimalait@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1268",
+      "name": "Dr. G Kalivaraprasanna Babu",
+      "email": "drgkbabuit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "934",
+      "name": "mullapudi Satish",
+      "email": "msatishmba@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "149",
+      "name": "Shanmathi Rekha Raju",
+      "email": "drshanmathirekhace@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "5431",
+      "name": "venkat s",
+      "email": "svenkatai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5430",
+      "name": "DVH Venu Kumar",
+      "email": "dvhvenukumarai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5429",
+      "name": "Veerendra Bethineedi",
+      "email": "bveerendraai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5428",
+      "name": "Srikanth Khandavalli",
+      "email": "ksrikanthai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "783",
+      "name": "Vegesna Lahari",
+      "email": "vlaharibs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "496",
+      "name": "K Hari Krishna",
+      "email": "kharikrishnaece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "933",
+      "name": "Dr.K Prabhavathi",
+      "email": "drkprabhavathimba@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "500014",
+      "name": "S Nagarajan",
+      "email": "snagarajancse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "5427",
+      "name": "Bharat K",
+      "email": "bharat@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "930",
+      "name": "M Harshitha Keerthi",
+      "email": "mkeerthimba@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "928",
+      "name": "Dr.M Karthik",
+      "email": "mkarthikmba@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "911",
+      "name": "Ch Anudeep",
+      "email": "ch.anudeep@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "903",
+      "name": "SWARNA JYOTHI J",
+      "email": "swarnajyothi@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "782",
+      "name": "Yadagiri Lakshmi Narasimha Kishore Mallela",
+      "email": "drmylnkishoreche@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "780",
+      "name": "V MURALI KRISHNA MADASU",
+      "email": "mvmkrishnabs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "781",
+      "name": "Ponnapalli Anuradha",
+      "email": "panuradhabs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "1267",
+      "name": "Nagadasi Amulya",
+      "email": "namulyait@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "932",
+      "name": "Dr.K.V Rama Murthy",
+      "email": "kvrmurthymba@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "345",
+      "name": "K Benarjee",
+      "email": "drkbenarjime@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "5882",
+      "name": "NAGARAJU PAMARTHI",
+      "email": "pnagaraju.cse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "5425",
+      "name": "Dr.Harinadh Varikuti",
+      "email": "vharinadhai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5426",
+      "name": "k swetha",
+      "email": "kswethaai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "490",
+      "name": "Ajita Lakshmi Kancharla",
+      "email": "kajitalakshmiece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "500011",
+      "name": "B Anooch",
+      "email": "banochcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "147",
+      "name": "Sridharam Sriharsha",
+      "email": "ssriharshace@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "500012",
+      "name": "Sunil Nelson",
+      "email": "sunilnelsoncse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "1265",
+      "name": "Yugandhar B",
+      "email": "byugandharit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1266",
+      "name": "Rambabu Kattula",
+      "email": "krambabuit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "5424",
+      "name": "Anusha Sigirisetty",
+      "email": "sanushaai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5423",
+      "name": "yandamuri gayatri",
+      "email": "ygayatriai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5422",
+      "name": "KALYANI GUNUKULA",
+      "email": "gkalyaniai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "50009",
+      "name": "V Rajesh Babu",
+      "email": "vrajeshbabucse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "1264",
+      "name": "Dr.RNDSS Kiran",
+      "email": "drrkiranit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "12002",
+      "name": "Chandra Sekhar",
+      "email": "chandu0805@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "146",
+      "name": "Dr. B. Sudhir Kumar",
+      "email": "sudhirce@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "498",
+      "name": "Nilesh Kumar Jaiswal",
+      "email": "nkjaiswalece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "901",
+      "name": "Dr.Subba Raju G",
+      "email": "hodmba@svecw.edu.in",
+      "department": "MBA"
+    },
+    {
+      "facultyid": "1263",
+      "name": "LAKSHMAJI KOTLA",
+      "email": "lakshmajiit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1262",
+      "name": "Raja Rajeswari CH",
+      "email": "chrrajeswariit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "342",
+      "name": "Phani Kumar Panchumarthy",
+      "email": "pphanikumarme@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "5421",
+      "name": "RAVINUTHALA SARADA",
+      "email": "rsarada.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5420",
+      "name": "ANANDH KUMAR SIRLAPU",
+      "email": "anandh.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "1225",
+      "name": "HotaPavan kumar",
+      "email": "hotapavankumar@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "343",
+      "name": "ASNIT GANGWAR",
+      "email": "asnitgme@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "7770",
+      "name": "Krishnarao Madugula",
+      "email": "mkrishnaraobs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "12005",
+      "name": "Srinath Ravuri",
+      "email": "rsrinath@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "341",
+      "name": "Rajesh Maddipati",
+      "email": "mrajeshme@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "776",
+      "name": "Aparna A",
+      "email": "aaparnamaths@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "1261",
+      "name": "RAGHU CHANDRA M",
+      "email": "raghuit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1249",
+      "name": "Murthy VSN",
+      "email": "vsnmurthyit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "5419",
+      "name": "Roosewelt Kommu",
+      "email": "roosevelt.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "50008",
+      "name": "VEERARAGHAVAN J",
+      "email": "drjveeraraghavancse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "1254",
+      "name": "Srinivasa Rao M",
+      "email": "msrinivasaraoit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1259",
+      "name": "Yesu Jyothi Y",
+      "email": "yyjyothiit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1260",
+      "name": "Bhanu Ranga Rao M",
+      "email": "bhanumit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "50006",
+      "name": "RAJESH THAMMULURI",
+      "email": "trajeshcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "50005",
+      "name": "ASAPU SATYAMALLESH",
+      "email": "asmalleshcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "1256",
+      "name": "Rajeev Kumar G A K S",
+      "email": "gaksit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1257",
+      "name": "Vinay P",
+      "email": "pvinayit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "340",
+      "name": "N Rajasekhar",
+      "email": "nrajasekharme@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "5418",
+      "name": "Vinod Babu P",
+      "email": "vinodbabup.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5412",
+      "name": "Senthil Kumar Angappan",
+      "email": "drsenthilkumar.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5413",
+      "name": "P ABHILASHA",
+      "email": "abhilashap.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "145",
+      "name": "haripavan nekkanti",
+      "email": "haripavance@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "309",
+      "name": "Sk. M Pasha",
+      "email": "pasha@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "1258",
+      "name": "Dr.Chandra Sekhar Kolli",
+      "email": "kcsit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1255",
+      "name": "Sabitha Y",
+      "email": "sabithait@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "495",
+      "name": "M. Hema Latha",
+      "email": "mhemalathaece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "493",
+      "name": "M. Sumalatha",
+      "email": "sumalathamece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "5411",
+      "name": "L.V.A PRIYA MADDIPATI",
+      "email": "mlvapriyaai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "7720",
+      "name": "jyothsna mani",
+      "email": "chjyothsnamanibs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "7710",
+      "name": "dhanalakshmi suneetha thatikonda",
+      "email": "tdlsunithache@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "775",
+      "name": "prathibha palingi",
+      "email": "pprathibhamaths@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "769",
+      "name": "karthik sairam thadepalli",
+      "email": "tkarthikbs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "770",
+      "name": "sudharani thota",
+      "email": "tsudharanibs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "773",
+      "name": "kalla kiranmai devi",
+      "email": "kkiranmaiche@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "774",
+      "name": "b kanaka durga",
+      "email": "bkanakadurgache@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "1251",
+      "name": "Srinivasa rao D",
+      "email": "dsrinivasaraoit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1248",
+      "name": "Dr.Harika B",
+      "email": "drbharikait@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1993",
+      "name": "PLVD RAVIKUMAR",
+      "email": "plvdravikumarit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "338",
+      "name": "Javvadi Eswara Manikanta",
+      "email": "manikantame@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "339",
+      "name": "A S V PRASAD",
+      "email": "asvprasadme@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "5410",
+      "name": "Bhargavi N",
+      "email": "nbhargaviai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "608",
+      "name": "Madhavi T",
+      "email": "madhavi.v@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "572",
+      "name": "N Durga",
+      "email": "ndurgacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "595",
+      "name": "Dr. M Prasad",
+      "email": "drmprasadcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "599CSE",
+      "name": "Taraka Satyanarayana Murthy",
+      "email": "ptsmurtycse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "594CSE",
+      "name": "GRLM Tayaru",
+      "email": "grlmtayarucse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "592CSE",
+      "name": "Soni Sharmila",
+      "email": "kssharmilacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "590CSE",
+      "name": "Phaneendra Varma",
+      "email": "chpvarmacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "5A3",
+      "name": "A.Nageswara Rao",
+      "email": "anageswararaocse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "5A2",
+      "name": "G Sujatha",
+      "email": "gsujathacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "5A1",
+      "name": "P B V Raja Rao",
+      "email": "drpbvrajaraocse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "5A0",
+      "name": "G Surendra Kumar",
+      "email": "gsurendrakumarcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "598",
+      "name": "Ch Venkata Ramana",
+      "email": "chvramanacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "596",
+      "name": "K Raja Sekhar",
+      "email": "krajasekharai@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "597",
+      "name": "P Archana",
+      "email": "parchanacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "591",
+      "name": "A Venkata Sri Asha",
+      "email": "avsashacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "589",
+      "name": "G Ramesh Babu",
+      "email": "grameshcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "143",
+      "name": "chettupalli harika",
+      "email": "chharikace@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "144",
+      "name": "RAM GOPAL L",
+      "email": "ramgopalce@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "5409",
+      "name": "Anandaraj Shunmugum",
+      "email": "anandaraj.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "1250",
+      "name": "Narayan Sharma",
+      "email": "narayansharmait@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1215",
+      "name": "Ravi Chandra Sriram",
+      "email": "ravichandrasriram@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1247",
+      "name": "Dileep Kumar Kadali",
+      "email": "kdileepkumarit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1270",
+      "name": "NAGENDRA RAJABOINA",
+      "email": "rnagendrababuit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "132",
+      "name": "manjula satti",
+      "email": "reddy.daughter319@gmail.com",
+      "department": "CE"
+    },
+    {
+      "facultyid": "768",
+      "name": "BASINA VEERA NAVEEN KUMAR",
+      "email": "bvnkbs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "766",
+      "name": "komandur Vasumathy Srinivas",
+      "email": "kvasumathysrinivas@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "5407",
+      "name": "Sree Jagadeesh Malla",
+      "email": "msjagadeeshai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "301",
+      "name": "Principal SVCEW",
+      "email": "principal@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "1245",
+      "name": "Kalyana Ramani Vatsavayi",
+      "email": "kalyanarvatsavayiit@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "320",
+      "name": "Surya Prakash Varma Potturi",
+      "email": "spvarmap@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "5403",
+      "name": "Mr. K. Janaki Siva Rama Raju",
+      "email": "kjsrrajuai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "5406",
+      "name": "Dr. Kalpana A V",
+      "email": "avkalpana.ai@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "12001",
+      "name": "Chinna Appanna",
+      "email": "chinna@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "142",
+      "name": "addanki tripura",
+      "email": "atripurace@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "1200",
+      "name": "srikrishna adusumalli",
+      "email": "srikrishna@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "718",
+      "name": "VSRINIVASU JADDU",
+      "email": "j.venkat@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "494",
+      "name": "Srinivasa V S Sharma",
+      "email": "dsvssarma@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "492",
+      "name": "PAVANI TELLA",
+      "email": "pavaniece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "490",
+      "name": "TEJA S",
+      "email": "stejaece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "489",
+      "name": "RATIKANTA SAHOO",
+      "email": "sahooece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "488",
+      "name": "KIRUTHIKA PRIYA M",
+      "email": "kpriya.ece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "487",
+      "name": "CHALLA RAM GRANDHI",
+      "email": "challaram.grandhi@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "486",
+      "name": "GIRISH KUMAR D",
+      "email": "girishkumar.d@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "485",
+      "name": "RADHA HANEESHA V",
+      "email": "radha.haneesha@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "482",
+      "name": "RAMESH VARMA DANDU",
+      "email": "varmaramesh422@gmail.com",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "471",
+      "name": "PRIYANKA GEDDAM",
+      "email": "priyankagddm@gmail.com",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "460",
+      "name": "A S MOHAN RAJU MORAMPUDI",
+      "email": "rajece402@gmail.com",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "458",
+      "name": "SAIRAM VAMSI TADIKAMALLA",
+      "email": "tsrvamsi@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "449",
+      "name": "PRIYANKA KONERU",
+      "email": "priyankad.koneru@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "440",
+      "name": "SURYA NARAYANA RAJU KALIDINDI",
+      "email": "ksnraju@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "438",
+      "name": "NARAYANA KIRAN AKONDI",
+      "email": "narayanakiranakondi@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "437",
+      "name": "Raghavendra Praveen Kumar Emani",
+      "email": "emani3815@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "428",
+      "name": "PADMANABHA RAJU MUDUNURI",
+      "email": "mpraju@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "430",
+      "name": "VISWANADHAM RAVURI",
+      "email": "ravuri.viswanadh@gmail.com",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "415",
+      "name": "RAVI KUMAR POLUKONDA",
+      "email": "ravikumar_tnk@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "413",
+      "name": "MURALI KRISHNA D",
+      "email": "ece_krishnad@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "456",
+      "name": "Venkata Subbarao Mandava",
+      "email": "mvsubbarao@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "484",
+      "name": "PRASAD NIZAMPATNAM",
+      "email": "prasad.niz@gmail.com",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "431",
+      "name": "SUDHEER TERLAPU",
+      "email": "skterlapu@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "412",
+      "name": "VENKATA GANESWARA RAO MADDIPATI",
+      "email": "mgr_ganesh@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "409",
+      "name": "PRADEEP MULLANGI",
+      "email": "pradeep_ece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "408",
+      "name": "PREMA KUMAR MEDAPATI",
+      "email": "mpremkumar@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "406",
+      "name": "MURTHY RAJU KOMMISETTY",
+      "email": "venkateswara.103@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "405",
+      "name": "SRINIVASA RAO VEMU",
+      "email": "vemu1974@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "404",
+      "name": "HANUMANTHA RAO SISTLA",
+      "email": "hanumanth.s@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "403",
+      "name": "PUSHPA KOTIPALLI",
+      "email": "pushpak@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "402",
+      "name": "R L V N SRINIVASA RAJU GORINTA",
+      "email": "grlvnsr@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "411",
+      "name": "PADMA VASAVI K",
+      "email": "hodece@svecw.edu.in",
+      "department": "ECE"
+    },
+    {
+      "facultyid": "138",
+      "name": "vatsavayee manasa",
+      "email": "vmanasace@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "109",
+      "name": "parupally sridhar",
+      "email": "parupallysridhar@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "111",
+      "name": "butti venkatesh",
+      "email": "bvenkateshcivil@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "141",
+      "name": "manjula satti",
+      "email": "manjulacivil@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "136",
+      "name": "pavany chebrolu",
+      "email": "pavanycivil@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "135",
+      "name": "Pala Gireesh Kumar",
+      "email": "gireeshcivil@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "128",
+      "name": "Lavanya Penmetsa",
+      "email": "plavanyacivil@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "101",
+      "name": "Venkatapathi Raju Uddaraju",
+      "email": "profuvrajuce@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "129",
+      "name": "Harika Sesetti",
+      "email": "harikacivil@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "140",
+      "name": "Parvathidevi Arimilly",
+      "email": "aparvathidevice@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "126",
+      "name": "surya kumari manukonda",
+      "email": "suryacivil@svecw.edu.in",
+      "department": "CE"
+    },
+    {
+      "facultyid": "256",
+      "name": "Suresh Babu Balakrishnan",
+      "email": "babueee@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "255",
+      "name": "SSSR Sarathbabu Duvvuri",
+      "email": "sarath.duvvuri@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "253",
+      "name": "Mahendra Chand Bade",
+      "email": "mahendrachandu.b@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "252",
+      "name": "Dr.Kalyan Sagar K",
+      "email": "kkalyansagareee@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "251",
+      "name": "V S Prasadarao Kothapalli",
+      "email": "vsprasadaraoeee@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "250",
+      "name": "Siva Asapu",
+      "email": "asivaeee@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "249",
+      "name": "Rohith Balaji Jonnala",
+      "email": "rohithbalajijonnala@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "243",
+      "name": "V Ramachandra Rao Choutipalli",
+      "email": "ramachandra.ch@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "242",
+      "name": "Pradeep Sudha Rapaka",
+      "email": "pradeep2b7@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "240",
+      "name": "Chandra Sekhar Kalidindi",
+      "email": "chanduvarma.kalidindi@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "239",
+      "name": "Siva Rama Ganesh Motepalli",
+      "email": "ganesh.motepalli@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "238",
+      "name": "Venkata Ramana Navana",
+      "email": "ramana.navana@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "235",
+      "name": "Naga Raju Eluri",
+      "email": "nagaraju.eluri@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "234",
+      "name": "Dr Ramu Bhukya",
+      "email": "ramu1632@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "232",
+      "name": "Praveen Kumar Nalli",
+      "email": "praveenkumar.nalli@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "231",
+      "name": "Venkatesh Jonnalagadda",
+      "email": "venkatesheee@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "229",
+      "name": "Lakshman Kumar Dangeti",
+      "email": "laxmankumardangeti@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "227",
+      "name": "Dr.Durga Prasad Garapati",
+      "email": "durgaprasad_garapati@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "222",
+      "name": "Veerababu Sunkara",
+      "email": "sveerababu@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "219",
+      "name": "T R Palleswari Yalla",
+      "email": "tulsiadabala@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "217",
+      "name": "Omkar Koduri",
+      "email": "omkar_koduri@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "207",
+      "name": "Pragna Swaroop Katikadala",
+      "email": "swaroopkp@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "206",
+      "name": "Venkata Srikanth Malladi",
+      "email": "srikanthmv@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "204",
+      "name": "Bharathi Gudelu",
+      "email": "bharathieee_10@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "3001",
+      "name": "Venkata Narasimha Raju Jampana",
+      "email": "vnrajujampana@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "337",
+      "name": "Raghavendra Sai Kathika",
+      "email": "kraghavendrasaime@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "331",
+      "name": "Madhav Doddi",
+      "email": "madhavd@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "330",
+      "name": "Mounika Yaragarla",
+      "email": "ymounika@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "336",
+      "name": "Dhana Satya prathap varma Uddarraju",
+      "email": "prathap9varma@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "333",
+      "name": "Lakshmi Narayana Veeravalli",
+      "email": "lakshminarayanav@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "329",
+      "name": "Satya Krishna Basina",
+      "email": "satya.krishna02@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "318",
+      "name": "Teja Venkata Satish J",
+      "email": "tejavenkatasatishj@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "326",
+      "name": "Manoneet Kumar",
+      "email": "manoneet.kumar@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "313",
+      "name": "Srinivasa Rao Nidamanuri",
+      "email": "srinivasaraon@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "316",
+      "name": "N Malleswara Rao Battina",
+      "email": "malleswararaobn@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "328",
+      "name": "Hari Krishna Chirala",
+      "email": "harikrishnach@svecw.edu.in",
+      "department": "ME"
+    },
+    {
+      "facultyid": "203",
+      "name": "Dilip Kumar Varma Sagiraju",
+      "email": "sagiraju_dileep@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "202",
+      "name": "Mohini Padmaja Suragani",
+      "email": "padmaja_vvr@svecw.edu.in",
+      "department": "EEE"
+    },
+    {
+      "facultyid": "765",
+      "name": "SARADADEVI MANDA",
+      "email": "saradadevi211@gmail.com",
+      "department": "BS"
+    },
+    {
+      "facultyid": "764",
+      "name": "LRKAMESWARI PYDIMARRY",
+      "email": "ramaravikumar.i@gmail.com",
+      "department": "BS"
+    },
+    {
+      "facultyid": "763",
+      "name": "V.M.S.S.KIRANKUMAR RAMACHANDRUNI",
+      "email": "kksaisivabs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "762",
+      "name": "AMJADULLAKHAN MAHAMMAD",
+      "email": "khanzaara1126@gmail.com",
+      "department": "BS"
+    },
+    {
+      "facultyid": "760",
+      "name": "ARUNKUMAR PASALA",
+      "email": "arunpbs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "758",
+      "name": "JOEL MATHEWS",
+      "email": "mathewsbs@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "755",
+      "name": "B.N.SURESHVARMA DENDUKURI",
+      "email": "dbnsureshvarma@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "247",
+      "name": "DEVAKIDEVI SAGIRAJU",
+      "email": "devakisagiraju@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "732",
+      "name": "GANGABHAVANI CHINTALA",
+      "email": "chbhavani777@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "730",
+      "name": "SRICHARANI PORANKI",
+      "email": "charani.yashu@svecw.edu.in",
+      "department": "AI"
+    },
+    {
+      "facultyid": "726",
+      "name": "JNANA VENKATA PRASAD GORIPARTHI",
+      "email": "svecwgjv@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "719",
+      "name": "VIJAYAPRASANTHI ADDANKI",
+      "email": "prashanthi@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "717",
+      "name": "ANNAPURNA SAMANA",
+      "email": "s.purna@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "716",
+      "name": "JAGADISH KADALI",
+      "email": "jagadish4vishnu@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "708",
+      "name": "PRASANTHI PUSAPATI",
+      "email": "jprasuvarma@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "709",
+      "name": "VENKATAKRISHNAKUMAR JANDYALA",
+      "email": "krishnakumarjv@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "748",
+      "name": "Dr. K GANESH KADIYALA",
+      "email": "kganeshkadiyala@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "713",
+      "name": "Dr. VASU BABU RAJULAPATI",
+      "email": "vasukgr@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "747",
+      "name": "Dr. Phani Yedlapalli",
+      "email": "phani.maths@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "706",
+      "name": "SRIHARIRAJU PATHAPATI",
+      "email": "psreehariraju@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "749",
+      "name": "Sree Brahmanandam Potula",
+      "email": "dranandpotula@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "702",
+      "name": "SREERAMAMURTHY TALABATHULA",
+      "email": "dr.ram@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "603",
+      "name": "Dr. Ramachandra Rao Kurada",
+      "email": "krcrao@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "567",
+      "name": "Srikanth Pala",
+      "email": "sreekanth.pala@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "585",
+      "name": "Sagarika E",
+      "email": "sagarika.cse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "533",
+      "name": "Narasimha Raju M",
+      "email": "mnarasimharajucse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "542",
+      "name": "Anuj Rapaka",
+      "email": "anujcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "606",
+      "name": "Silpa N",
+      "email": "nsilpa@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "601",
+      "name": "Dr. V V R Maheswara Rao",
+      "email": "deansb@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "509",
+      "name": "J R Shalem Raju Pidakala",
+      "email": "jesuratnashalemraju@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "1229",
+      "name": "Dharmaiah Devarapalli",
+      "email": "dharma@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "587",
+      "name": "Neelima Tatipaka",
+      "email": "neelima.cse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "561",
+      "name": "Dr. Kiran Sree Pokkuluri",
+      "email": "pkirancse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "550",
+      "name": "Bhadrachalam Kollati",
+      "email": "bhadrachalamcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "546",
+      "name": "Ramesh Babu Mallela",
+      "email": "rameshbabucse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "605",
+      "name": "SUNIL PATTEM",
+      "email": "sunilp@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "571",
+      "name": "Lakshmi Durga",
+      "email": "lakshmidurgacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "504",
+      "name": "Y RAMU",
+      "email": "yramu@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "541",
+      "name": "Mangalampalli Surya Sudheer",
+      "email": "sudheercse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "558",
+      "name": "Raviteja Kocherla",
+      "email": "ktejacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "545",
+      "name": "Rama Rao Malisetty",
+      "email": "ramaraocse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "543",
+      "name": "TATA Gayathri",
+      "email": "gayathritcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "538",
+      "name": "V S S P Raju Gottumukkala",
+      "email": "gvssprasadrajucse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "540",
+      "name": "Mohan Ram Garsukuti",
+      "email": "mohanramcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "549",
+      "name": "KESAVA TALUPURI",
+      "email": "kesavacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "502",
+      "name": "Purushothama Raju V",
+      "email": "praju@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "563",
+      "name": "VenkataSwathi R",
+      "email": "venkataswathir@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "535",
+      "name": "RAJU P",
+      "email": "rajupcse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "507",
+      "name": "Prathipati Ratna Sudha Rani",
+      "email": "prsudharanicse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "505",
+      "name": "Aaluri Seenu",
+      "email": "aaluriseenu@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "513",
+      "name": "Venkata Narayana Rao Kota",
+      "email": "venkatanarayanakota@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "564",
+      "name": "Kanumuri Ratna Kumari",
+      "email": "kratnacse@svecw.edu.in",
+      "department": "CSE"
+    },
+    {
+      "facultyid": "705",
+      "name": "RAVI KIRAN DUVVURI",
+      "email": "duvvuriravikiran@svecw.edu.in",
+      "department": "BS"
+    },
+    {
+      "facultyid": "1208",
+      "name": "Ravi Kumar Suggala",
+      "email": "ravikumars@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1243",
+      "name": "Veeramanickam Murugappan",
+      "email": "manic.veera2020@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1242",
+      "name": "Dr.Nagendra Panini Challa",
+      "email": "cnpanini@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1241",
+      "name": "Padma Bellapukonda",
+      "email": "padmabellapukonda@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1240",
+      "name": "Shanmuganathan Chandrasekaran",
+      "email": "drcsnathan@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1237",
+      "name": "Spandana Kala",
+      "email": "kspandana@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1236",
+      "name": "Jahnavi Deepika Gubbala",
+      "email": "jahnavideepikag@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1235",
+      "name": "Sasi Kumar Bunga",
+      "email": "sasikumarbunga@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1231",
+      "name": "Suma Bharathi. Thota",
+      "email": "suma.hasika@gmail.com",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1226",
+      "name": "Lakshmipathi Raju Kanumuri",
+      "email": "laxmipathiraju@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1224",
+      "name": "Leela Prasad Vijayagiri",
+      "email": "leelaprasadv@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1223",
+      "name": "Tej Varma Gadiraju",
+      "email": "tejvarmag@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1221",
+      "name": "Ramu Kampalli",
+      "email": "ram.kampally@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1218",
+      "name": "Dr. Pavan Kumar Vadrevu",
+      "email": "vadrevu.pavan@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1210",
+      "name": "Mohan Allam",
+      "email": "mohanallam@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1207",
+      "name": "Dr. Ratnakanth Gudala",
+      "email": "ratnakanth@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1205",
+      "name": "Venkata Naga Raju Datla",
+      "email": "dvnraju@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1202",
+      "name": "Sreenivasu Seelamanthula",
+      "email": "sreenivasu@svecw.edu.in",
+      "department": "IT"
+    },
+    {
+      "facultyid": "1201",
+      "name": "Venkata Rama Raju Penmetsa",
+      "email": "pvramaraju@svecw.edu.in",
+      "department": "IT"
     }
   ]
 }
-
-

@@ -68,13 +68,13 @@ app.post('/coursefile/api/login', (req, res) => {
   if (!faculty) return res.status(401).json({ error: 'Invalid credentials' });
 
   // Password is their faculty id per requirements
-  const isValid = String(password) === String(faculty.facultyId);
+  const isValid = String(password) === String(faculty.facultyid);
   if (!isValid) return res.status(401).json({ error: 'Invalid credentials' });
 
   const token = uuidv4();
   const session = {
     token,
-    facultyId: faculty.facultyId,
+    facultyid: faculty.facultyid,
     email: faculty.email,
     name: faculty.name,
     department: faculty.department,
@@ -86,7 +86,7 @@ app.post('/coursefile/api/login', (req, res) => {
     httpOnly: true,
     sameSite: 'lax'
   });
-  return res.json({ ok: true, user: { name: session.name, facultyId: session.facultyId, department: session.department } });
+  return res.json({ ok: true, user: { name: session.name, facultyid: session.facultyid, department: session.department } });
 });
 
 app.post('/coursefile/api/logout', requireAuth, (req, res) => {
@@ -108,14 +108,14 @@ app.post('/coursefile/api/year', requireAuth, (req, res) => {
 });
 
 app.get('/coursefile/api/me', requireAuth, (req, res) => {
-  const { name, facultyId, email, department, academicYear } = req.session;
-  res.json({ user: { name, facultyId, email, department }, academicYear: academicYear || null });
+  const { name, facultyid, email, department, academicYear } = req.session;
+  res.json({ user: { name, facultyid, email, department }, academicYear: academicYear || null });
 });
 
 // Subjects CRUD
 app.get('/coursefile/api/subjects', requireAuth, (req, res) => {
   const data = readJson(subjectsDataPath);
-  const list = data.byFacultyId[req.session.facultyId] || [];
+  const list = data.byFacultyId[req.session.facultyid] || [];
   res.json({ subjects: list });
 });
 
@@ -135,10 +135,10 @@ app.post('/coursefile/api/subjects', requireAuth, (req, res) => {
     regulation,
     createdAt: Date.now()
   };
-  if (!data.byFacultyId[req.session.facultyId]) {
-    data.byFacultyId[req.session.facultyId] = [];
+  if (!data.byFacultyId[req.session.facultyid]) {
+    data.byFacultyId[req.session.facultyid] = [];
   }
-  data.byFacultyId[req.session.facultyId].push(subject);
+  data.byFacultyId[req.session.facultyid].push(subject);
   writeJson(subjectsDataPath, data);
   res.status(201).json({ subject });
 });
@@ -147,7 +147,7 @@ app.put('/coursefile/api/subjects/:id', requireAuth, (req, res) => {
   const { id } = req.params;
   const { yearSem, department, section, subjectCode, subjectName, regulation } = req.body || {};
   const data = readJson(subjectsDataPath);
-  const list = data.byFacultyId[req.session.facultyId] || [];
+  const list = data.byFacultyId[req.session.facultyid] || [];
   const idx = list.findIndex((s) => s.id === id);
   if (idx === -1) return res.status(404).json({ error: 'Subject not found' });
   const existing = list[idx];
@@ -161,7 +161,7 @@ app.put('/coursefile/api/subjects/:id', requireAuth, (req, res) => {
     regulation: regulation || existing.regulation
   };
   list[idx] = updated;
-  data.byFacultyId[req.session.facultyId] = list;
+  data.byFacultyId[req.session.facultyid] = list;
   writeJson(subjectsDataPath, data);
   res.json({ subject: updated });
 });
@@ -169,21 +169,21 @@ app.put('/coursefile/api/subjects/:id', requireAuth, (req, res) => {
 app.delete('/coursefile/api/subjects/:id', requireAuth, (req, res) => {
   const { id } = req.params;
   const data = readJson(subjectsDataPath);
-  const list = data.byFacultyId[req.session.facultyId] || [];
+  const list = data.byFacultyId[req.session.facultyid] || [];
   const idx = list.findIndex((s) => s.id === id);
   if (idx === -1) return res.status(404).json({ error: 'Subject not found' });
   const removed = list[idx];
   const next = list.filter((s) => s.id !== id);
-  data.byFacultyId[req.session.facultyId] = next;
+  data.byFacultyId[req.session.facultyid] = next;
   writeJson(subjectsDataPath, data);
 
   // Also delete uploaded files directory for this subject (current AY/Dept/Faculty)
   try {
     const year = req.session.academicYear;
     const dept = req.session.department;
-    const facultyId = req.session.facultyId;
-    if (year && dept && facultyId && removed && removed.subjectCode) {
-      const dir = path.join(__dirname, 'uploads', year, dept, facultyId, removed.subjectCode);
+    const facultyid = req.session.facultyid;
+    if (year && dept && facultyid && removed && removed.subjectCode) {
+      const dir = path.join(__dirname, 'uploads', year, dept, facultyid, removed.subjectCode);
       if (fs.existsSync(dir)) {
         fs.rmSync(dir, { recursive: true, force: true });
       }
@@ -235,8 +235,8 @@ const upload = multer({
       }
       const year = req.session.academicYear;
       const dept = req.session.department;
-      const facultyId = req.session.facultyId;
-      const baseDir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
+      const facultyid = req.session.facultyid;
+      const baseDir = path.join(__dirname, 'uploads', year, dept, facultyid, subjectCode);
       fs.mkdirSync(baseDir, { recursive: true });
       cb(null, baseDir);
     },
@@ -320,8 +320,8 @@ app.post('/coursefile/api/upload', requireAuth, upload.single('file'), async (re
     if (!subjectCode || !section) return res.status(400).json({ error: 'subjectCode and section are required' });
     const year = req.session.academicYear;
     const dept = req.session.department;
-    const facultyId = req.session.facultyId;
-    const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
+    const facultyid = req.session.facultyid;
+    const dir = path.join(__dirname, 'uploads', year, dept, facultyid, subjectCode);
     const finalName = `section-${section}.pdf`;
     const tmpPath = path.join(dir, req.file.filename);
     const finalPath = path.join(dir, finalName);
@@ -342,8 +342,8 @@ app.delete('/coursefile/api/upload', requireAuth, async (req, res) => {
     if (!subjectCode || !section) return res.status(400).json({ error: 'subjectCode and section are required' });
     const year = req.session.academicYear;
     const dept = req.session.department;
-    const facultyId = req.session.facultyId;
-    const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
+    const facultyid = req.session.facultyid;
+    const dir = path.join(__dirname, 'uploads', year, dept, facultyid, subjectCode);
     const filePath = path.join(dir, `section-${section}.pdf`);
     if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'File not found' });
     fs.unlinkSync(filePath);
@@ -360,15 +360,15 @@ app.get('/coursefile/api/uploads', requireAuth, (req, res) => {
   if (!req.session.academicYear) return res.status(400).json({ error: 'Academic year not set' });
   const year = req.session.academicYear;
   const dept = req.session.department;
-  const facultyId = req.session.facultyId;
-  const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
+  const facultyid = req.session.facultyid;
+  const dir = path.join(__dirname, 'uploads', year, dept, facultyid, subjectCode);
   if (!fs.existsSync(dir)) return res.json({ files: [] });
   const files = fs
     .readdirSync(dir)
     .filter((f) => f.toLowerCase().endsWith('.pdf'))
     .map((name) => ({
       name,
-      url: `/coursefile/uploads/${encodeURIComponent(year)}/${encodeURIComponent(dept)}/${encodeURIComponent(facultyId)}/${encodeURIComponent(subjectCode)}/${encodeURIComponent(name)}`
+      url: `/coursefile/uploads/${encodeURIComponent(year)}/${encodeURIComponent(dept)}/${encodeURIComponent(facultyid)}/${encodeURIComponent(subjectCode)}/${encodeURIComponent(name)}`
     }));
   res.json({ files });
 });
@@ -410,8 +410,8 @@ app.get('/coursefile/api/merge', requireAuth, async (req, res) => {
     if (!subjectCode || !subjectName) return res.status(400).json({ error: 'subjectCode and subjectName are required' });
     const year = req.session.academicYear;
     const dept = req.session.department;
-    const facultyId = req.session.facultyId;
-    const dir = path.join(__dirname, 'uploads', year, dept, facultyId, subjectCode);
+    const facultyid = req.session.facultyid;
+    const dir = path.join(__dirname, 'uploads', year, dept, facultyid, subjectCode);
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
     const out = await PDFDocument.create();

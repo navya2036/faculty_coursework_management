@@ -143,7 +143,7 @@
 			if (!me.ok) { window.location.href = '/coursefile'; return; }
 			const meData = await me.json();
 			if (!meData.academicYear) { window.location.href = '/coursefile/year'; return; }
-			who.textContent = `${meData.user.name} (${meData.user.facultyId}) • ${meData.user.department} • AY ${meData.academicYear}`;
+		who.textContent = `${meData.user.name} (${meData.user.facultyid}) • ${meData.user.department} • AY ${meData.academicYear}`;
 			const res = await fetch('/coursefile/api/subjects', { credentials: 'include' });
 			const data = await res.json();
 			renderList(data.subjects || []);
